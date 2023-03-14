@@ -2,7 +2,7 @@ class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         n = len(temperatures)
         res = [0] * n
-        # 单调栈
+        # 单调栈，存储下标
         stack = [0]
         for i in range(1, n):
             # 小于+等于
