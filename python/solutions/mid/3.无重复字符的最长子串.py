@@ -19,3 +19,5 @@ class Solution:
             lookup.add(s[i])
         
         return max_len
+    
+# follow up: 至少k个重复的最长子串 lc395

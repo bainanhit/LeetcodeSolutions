@@ -1,6 +1,7 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        # 双指针
+        # 排序 + 双指针
+        # 先排序 T=O(nlogn)
         res = []
         n = len(nums)
         nums.sort(reverse=False)
