@@ -1,7 +1,7 @@
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # 快速选择
-        
+        # O(N) 近线性  由partition性质决定 
         def partition(nums, left, right):
             i, j = left, right
             pivot = nums[left]
