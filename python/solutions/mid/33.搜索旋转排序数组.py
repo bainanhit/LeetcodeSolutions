@@ -7,12 +7,16 @@ class Solution:
             mid = (left + right) // 2
             if nums[mid] == target:
                 return mid
+            # 右边有序
             elif nums[mid] < nums[right]:
+                # target位于有序区间
                 if nums[mid] < target and nums[right] >= target:
                     left = mid + 1
                 else:
                     right = mid - 1
+            # 左边有序
             else:
+                # target位于有序区间
                 if nums[left] <= target and nums[mid] > target:
                     right = mid - 1
                 else:
