@@ -7,7 +7,6 @@ class Solution:
         n = len(board[0])
         length = len(word)
         visited = [[0 for _ in range(n)] for _ in range(m)]
-        res = 0
         
         def backtrack(i, j, k):
             # 超出边界、已经访问过、已找到目标单词、棋盘格中当前字符已经和目标字符不一致了
@@ -17,6 +16,7 @@ class Solution:
                 return True
             
             visited[i][j] = 1 # 修改当前节点状态
+            # 回溯
             backtrack(i+1, j, k+1)
             backtrack(i-1, j, k+1)
             backtrack(i, j+1, k+1)
