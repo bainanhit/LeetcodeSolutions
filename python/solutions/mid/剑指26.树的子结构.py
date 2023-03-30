@@ -20,3 +20,5 @@ class Solution:
             return False
         # 判断B是否是A，A左子树，A右子树的子结构
         return self.compare(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
+    
+    
