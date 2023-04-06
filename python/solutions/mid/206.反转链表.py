@@ -14,3 +14,6 @@ class Solution:
             cur = tmp
         
         return pre
+
+    # fu: 递归方法
+    
