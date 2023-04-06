@@ -14,3 +14,17 @@ class Solution:
             dp[i][1] = max(dp[i-1][1], dp[i-1][0]+prices[i])
         
         return dp[-1][1]
+    
+    
+    # 买卖股票最佳时机1
+    def maxProfit(self, prices: List[int]) -> int:
+        n = len(prices)
+        if n <= 1:
+            return 0
+        
+        min_in, max_pr = prices[0], 0
+        for i in range(1, n):
+            min_in = min(prices[i], min_in)
+            max_pr = max(max_pr, prices[i]-min_in)
+        
+        return max_pr
