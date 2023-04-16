@@ -1,7 +1,9 @@
 class Solution:
+    # 第k大->降序
+    # 第k小： 代码不变 K-> n-k+1
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # 快速选择
-        # O(N) 近线性  由partition性质决定 
+        # O(N) + Z(logN) 近线性  由partition性质决定 
         def partition(nums, left, right):
             i, j = left, right
             pivot = nums[left]
@@ -29,3 +31,6 @@ class Solution:
 
         return nums[topk_split(nums, k, 0, len(nums)-1)]
     
+# fu: 堆排序
+# O(nlogk) Z(logk)
+

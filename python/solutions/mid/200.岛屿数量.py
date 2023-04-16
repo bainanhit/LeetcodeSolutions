@@ -1,4 +1,5 @@
 class Solution:
+    # DFS， 时间O(MN) 空间O(MN)
     def dfs(self, grid, i, j):
         m = len(grid)
         n = len(grid[0])
@@ -22,3 +23,6 @@ class Solution:
                     res += 1
         
         return res
+
+    # Fu: BFS, 时间O(MN), 空间O(min(M, N))
+    # def 
