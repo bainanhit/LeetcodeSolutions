@@ -1,9 +1,9 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        # 回溯
+        
         path = []
         paths = []
-        
+        # 回溯
         def backtrack(n, k, start):
             if len(path) == k:
                 paths.append(path[:])
@@ -15,3 +15,6 @@ class Solution:
         
         backtrack(n, k, 1)
         return paths
+
+
+# fu: 字符串的全组合，要求结果中没有重复组合

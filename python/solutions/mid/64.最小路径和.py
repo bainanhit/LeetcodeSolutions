@@ -17,6 +17,24 @@ class Solution:
         
         return dp[-1][-1]
     
+    # 滚动数组
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        # 初始化
+        dp = grid[0]
+        # 第0行
+        for i in range(1, n):
+            dp[i] += dp[i-1]
+        
+        for i in range(1, m):
+            # 注意这里
+            dp[0] += grid[i][0]
+            for j in range(1, n):
+                dp[j] = min(dp[j], dp[j-1]) + grid[i][j]
+        
+        return dp[-1]
+
+
     
     # 法二+输出具体路径：
     def minPathSum(self, grid: List[List[int]]) -> int:
