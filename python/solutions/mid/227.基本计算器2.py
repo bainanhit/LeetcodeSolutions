@@ -1,6 +1,6 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        # 栈
+        # 栈    
         # 加减压入栈，乘除计算当前num与栈顶元素结果
         n = len(s)
         stack = []

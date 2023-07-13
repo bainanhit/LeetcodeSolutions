@@ -1,12 +1,12 @@
 class LRUCache:
-
+    # 模拟
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.dic = collections.OrderedDict()
 
     def get(self, key: int) -> int:
         if key in self.dic:
-            self.dic[key] = self.dic.pop(key)
+            self.dic[key] = self.dic.pop(key)   
             return self.dic[key]
         else:
             return -1

@@ -1,5 +1,5 @@
 class Solution:
-    # DFS， 时间O(MN) 空间O(MN)
+    # 回溯， 时间O(MN) 空间O(MN)
     def dfs(self, grid, i, j):
         m = len(grid)
         n = len(grid[0])

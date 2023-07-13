@@ -7,6 +7,7 @@
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         # 快慢指针
+        # O(N) Z(1)
         if not head or not head.next:
             return None
         slow, fast = head, head
@@ -22,4 +23,15 @@ class Solution:
                 return slow
             
         return None
+    
+    # 环形链表1
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        fast, slow = head, head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        
+        return False
         

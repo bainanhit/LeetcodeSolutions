@@ -1,17 +1,24 @@
-def quick_sort(lists,i,j):
-    if i >= j:
-        return list
-    pivot = lists[i]
-    low = i
-    high = j
-    while i < j:
-        while i < j and lists[j] >= pivot:
-            j -= 1
-        lists[i] = lists[j]
-        while i < j and lists[i] <= pivot:
-            i += 1
-        lists[j] = lists[i]
-    lists[j] = pivot
-    quick_sort(lists,low,i-1)
-    quick_sort(lists,i+1,high)
-    return lists
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        def partition(nums, l, r):
+            i, j = l, r
+            pivot = nums[i]
+            while i < j:
+                while i<j and nums[j] >= pivot:
+                    j -= 1
+                nums[i] = nums[j]
+                while i<j and nums[i] <= pivot:
+                    i += 1
+                nums[j] = nums[i]
+            nums[i] = pivot
+            return i
+        
+        def quicksort(nums, l, r):
+            if l < r:
+                idx = partition(nums, l, r)
+                quicksort(nums, l, idx-1)
+                quicksort(nums, idx+1, r)
+            return nums
+        
+        return quicksort(nums, 0, n-1)

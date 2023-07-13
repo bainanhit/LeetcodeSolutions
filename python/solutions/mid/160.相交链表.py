@@ -6,6 +6,8 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        # 求出两个链表的长度，并求出两个链表长度的差值，然后让curA移动到，和curB 末尾对齐的位置
+        # O(M+N) Z(1)
         if not headA or not headB:
             return None
         pa, pb = headA, headB

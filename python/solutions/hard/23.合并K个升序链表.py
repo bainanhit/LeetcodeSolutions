@@ -9,6 +9,7 @@ class Solution:
         n = len(lists)
         
         def mergeTwoLists(l1, l2):
+            # 增加了边界判断
             if not l1 or not l2:
                 return l2 if not l1 else l1
             head = ListNode(0)
