@@ -19,5 +19,5 @@ class Solution:
         return res[::-1]
 
 # follow up
-# 有负数进行加减： 分4种情况
+# 有负数进行加减：分4种情况
 

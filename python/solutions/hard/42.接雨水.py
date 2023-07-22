@@ -2,6 +2,7 @@ class Solution:
     
     def trap(self, height: List[int]) -> int:
         # 双指针法
+        # 竖着算 O(N) Z(1)
         n = len(height)
         if n <= 2:
             return 0
