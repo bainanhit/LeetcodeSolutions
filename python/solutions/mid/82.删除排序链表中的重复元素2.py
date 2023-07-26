@@ -7,7 +7,7 @@ class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
             return head
-        
+        # 双指针
         dummy = ListNode(0, head)
         pre = dummy
         cur = pre.next

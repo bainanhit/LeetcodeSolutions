@@ -12,6 +12,15 @@ class Solution:
         return res
 
 
+    # 梯度下降法求解
+    def mySqrt(self, x: int) -> int:
+        lr = 0.001
+        value = 1
+        while(abs(value*value - x) > 0.00001):
+            value = value - 4*value*lr*(value*value - x)
+        return round(value)
+
+
     # 升级版：浮点数保留精确
     def mySqrt2(self, x: double, precision) -> double:
         l, r, res = 1, x, -1
@@ -27,4 +36,8 @@ class Solution:
                 r = mid
 
         return res
+    
+
+    
+
     

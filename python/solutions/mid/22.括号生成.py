@@ -1,7 +1,7 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         res = []
-        # 回溯
+        # 回溯  
         def backtrack(in_idx: int, out_idx: int, tmp_res: str):
             # 边界条件
             if in_idx > n or out_idx > n:
