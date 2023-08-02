@@ -12,7 +12,6 @@ class Solution:
             return False
         return self.dfs(root, targetSum)
         
-            
     def dfs(self, root, _sum):
         if not root:
             return False

@@ -7,6 +7,7 @@
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         # 递归
+        # O(N2) Z(N)
         def dfs(node):
             if not node:
                 return 0
@@ -21,3 +22,20 @@ class Solution:
             return False
         # 左右子树高度差都小于等于1
         return self.isBalanced(root.left) and self.isBalanced(root.right)
+    
+
+# 优化
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        # O(N) Z(N)
+        def height(root: TreeNode) -> int:
+            if not root:
+                return 0
+            leftHeight = height(root.left)
+            rightHeight = height(root.right)
+            if leftHeight == -1 or rightHeight == -1 or abs(leftHeight - rightHeight) > 1:
+                return -1
+            else:
+                return max(leftHeight, rightHeight) + 1
+
+        return height(root) >= 0

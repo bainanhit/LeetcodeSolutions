@@ -17,7 +17,7 @@ class Solution:
         
         return dp[-1][-1]
     
-    # 滚动数组
+    # 法二：滚动数组
     def minPathSum(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
         # 初始化
@@ -34,6 +34,8 @@ class Solution:
         
         return dp[-1]
 
+
+    # 法三：原地修改，Z(1)
 
     
     # 法二+输出具体路径：

@@ -30,4 +30,22 @@ class Solution:
         
         return total
             
+            
+    # 递归
+    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+        res = 0
+        
+        def dfs(root, tmp_sum):
+            nonlocal res
+            if not root:
+                return
+            k = root.val + tmp_sum*10
+            if not root.left and not root.right:
+                res += k
+            
+            dfs(root.left, k)
+            dfs(root.right, k)
+        
+        dfs(root, 0)
+        return res
     
