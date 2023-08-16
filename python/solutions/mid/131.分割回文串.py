@@ -1,5 +1,7 @@
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
+        # 回溯 + 记忆化搜索
+        # O(N*2^n) Z(N^2)
         n = len(s)
         path = []
         res = []
@@ -17,10 +19,11 @@ class Solution:
             return 1
             
         
-        def backtrack(start):
+        def backtrack(start): 
             if start == n:
                 res.append(path[:])
                 return
+            # 枚举子串的结束位置
             for end in range(start, n):
                 if isPalindrome(s[start: end+1]):
                     path.append(s[start: end+1])

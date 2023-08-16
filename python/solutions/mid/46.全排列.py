@@ -26,7 +26,7 @@ class Solution:
             used[i] = 0
 
 
-# fu: 全排列2 去重
+# fu: 47.全排列2 去重
 def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         path = []
         paths = []

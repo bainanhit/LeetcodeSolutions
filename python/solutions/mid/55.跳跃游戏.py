@@ -18,7 +18,7 @@ class Solution:
             
             
             
-# fu: lc 45
+# fu: lc 45.跳跃游戏2
 class Solution:
     def jump(self, nums: List[int]) -> int:
         # 贪心

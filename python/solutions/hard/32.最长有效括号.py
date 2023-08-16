@@ -8,8 +8,9 @@ class Solution:
             if s[i] == '(':
                 stack.append(i)
             else:
-                if stack:
-                    stack.pop()
+                # 每次遇到一个右括号，则先把栈顶的元素弹出，如果弹出后当前栈变成空栈，则需要将当前右括号所在位置入栈，
+                # 否则需要根据当前栈顶元素和当前右括号下标计算当前有效括号子串的长度，并更新结果变量res
+                stack.pop()
                 # 匹配左括号
                 if not stack:
                     stack.append(i)

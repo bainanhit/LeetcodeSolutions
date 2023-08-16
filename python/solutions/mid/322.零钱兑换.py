@@ -16,3 +16,16 @@ class Solution:
             
         return dp[amount] if dp[amount] != float("inf") else -1
         
+
+# fu: 518.零钱兑换2
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        n = len(coins)
+        # 凑成总金额j的货币组合数为dp[j]
+        dp = [0] *(amount+1)
+        dp[0] = 1
+        for coin in coins:
+            for j in range(coin, amount+1):
+                dp[j] += dp[j-coin]
+
+        return dp[amount] 

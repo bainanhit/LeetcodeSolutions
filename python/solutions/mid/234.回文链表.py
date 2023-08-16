@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     # 时间O(N) 空间O(1)
+    # 先用快慢双指针的方式找到链表的中间节点, 将链表分成待比较的两部分, 再将链表的后一部分反转, 然后逐个比较两部分
     def reverse(self, head):
         cur, pre = head, None
         while cur:
@@ -20,8 +21,8 @@ class Solution:
         while r and r.next:
             l = l.next
             r = r.next.next
-        if r:
-            l = l.next # 奇数个节点
+        # if r:
+        #     l = l.next # 奇数个节点
         first = head
         last = self.reverse(l)
         

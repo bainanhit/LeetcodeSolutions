@@ -3,6 +3,7 @@ class Solution:
         """
         :rtype: int
         """
+        # (randX() - 1)*Y + randY() 可以等概率的生成[1, X * Y]范围的随机数
         # res的值是在1~49范围内的均匀分布
         while True:
             res = (rand7()-1)*7 + (rand7())

@@ -12,7 +12,7 @@ class Solution:
         dic_s = collections.defaultdict(int)
         for c in t:
             dic_t[c] += 1
-        dic_t_len = len(dic_t)
+            
         l, r = 0, 0
         # cnt来统计有效覆盖的数量,当cnt==t.size(),说明已经全覆盖了
         cnt = 0

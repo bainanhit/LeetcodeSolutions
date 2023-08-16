@@ -8,7 +8,7 @@ class Solution:
         dp[2] = 2
     
         for i in range(3, n+1):
-            for j in range(0, n):
+            for j in range(0, i):
                 dp[i] += dp[j] * dp[i-j-1]
 
         return dp[n]

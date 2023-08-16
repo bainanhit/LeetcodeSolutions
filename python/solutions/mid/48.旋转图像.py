@@ -13,4 +13,5 @@ class Solution:
             for j in range(n//2):
                 matrix[i][j], matrix[i][n-j-1] = matrix[i][n-j-1], matrix[i][j]
         
-        
+    
+# fu: m*n的矩阵进行转置
