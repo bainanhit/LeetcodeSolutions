@@ -1,21 +1,72 @@
 class Solution:
-    def kInversePairs(self, n: int, k: int) -> int:
-        # dp优化时间复杂度
-        # O(KN) Z(KN)
-        # 状态定义：dp[i][j] 表示前 i 个数的数组中正好有 j 个逆序对的个数；
+    def reversePairs(self, nums: List[int]) -> int:
+        # 归并
+        # o(nlogn) z(n)
+        if not nums:
+            return 0
         res = 0
-        mod = 1000000007
-        # dp[i][j] = dp[i-1][j] + dp[i-1][j-1] + ... + dp[i-1][j-i-1]
-        # dp[i][j-1] =            dp[i-1][j-1] + ... + dp[i-1][j-1-(i-1-1)] + dp[i-1][j-1-(i-1)]
-        # dp[i][j] = dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1-i-1]
-        dp = [[0]*(k+1) for _ in range(n+1)]
-        dp[1][0] = 1
-        for i in range(2, n+1):
-            # 边界
-            bound = min(k, int(i*(i-1)/2))
-            for j in range(0, bound+1):
-                dp[i][j] = ((dp[i][j-1] if j>=1 else 0) + 
-                            dp[i-1][j] - (dp[i-1][j-i] if j>=i else 0)) % mod
-        
-        res = dp[n][k]
+        def mergesort(l, r):
+            if l < r:
+                mid = (l+r) // 2
+                mergesort(l, mid)
+                mergesort(mid+1, r)
+                merge(l, r)
+
+
+        def merge(left, right):    
+            nonlocal res
+            mid = (left+right) // 2
+            l, r = left, mid+1
+
+            tmp = []
+            
+            while l <= mid and r <= right:
+                if nums[l] <= nums[r]:
+                    tmp.append(nums[l])
+                    l += 1
+                else:
+                    tmp.append(nums[r])
+                    r += 1
+                    # 计算逆序数
+                    res += mid-l+1
+
+            if l <= mid:
+                tmp.extend(nums[l: mid+1])
+            else:
+                tmp.extend(nums[r:])
+            
+            nums[left : right+1] = tmp[:]
+
+        l, r = 0, len(nums)-1
+        mergesort(l, r)
         return res
+            
+
+            
+# 内存简化版
+class Solution:
+    def reversePairs(self, nums: List[int]) -> int:
+        def merge_sort(l, r):
+            # 终止条件
+            if l >= r: return 0
+            # 递归划分
+            m = (l + r) // 2
+            res = merge_sort(l, m) + merge_sort(m + 1, r)
+            # 合并阶段
+            i, j = l, m + 1
+            tmp[l:r + 1] = nums[l:r + 1]
+            for k in range(l, r + 1):
+                if i == m + 1:
+                    nums[k] = tmp[j]
+                    j += 1
+                elif j == r + 1 or tmp[i] <= tmp[j]:
+                    nums[k] = tmp[i]
+                    i += 1
+                else:
+                    nums[k] = tmp[j]
+                    j += 1
+                    res += m - i + 1 # 统计逆序对
+            return res
+        
+        tmp = [0] * len(nums)
+        return merge_sort(0, len(nums) - 1)

@@ -1,5 +1,6 @@
 class Solution:
     def calculate(self, s: str) -> int:
+        # 功能为实现eval()
         sign = 1
         res = 0
         stack = []
